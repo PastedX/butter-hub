@@ -26,7 +26,7 @@ local CurrentWeapon = ""
 local RenderStepConnection = nil
 local Enemies = {}
 local KillAuraDistance = 30
-local GuiCommands = {"InfAmmo","OneShot","NoCooldown","SilentAim","AutoParry","KillAura","AutoKill","VirusBlock","AntiDebuff","NoHunger","AntiFallDamage","AntiRecoil","SuperRun",}
+local GuiCommands = {"InfAmmo","OneShot","NoCooldown","SilentAim","VirusBlock","AntiDebuff","NoHunger","AntiFallDamage","AntiRecoil","SuperRun",}
 
 
 local Toggles = {
