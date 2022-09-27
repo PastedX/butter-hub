@@ -3,7 +3,6 @@ edited: 1/26
 developers:
 v3rm AbstractPoo	discord Abstract#8007
 v3rm 0xDEITY		discord Deity#0228
-
 ]]
 
 local TweenService = game:GetService("TweenService")
@@ -16,12 +15,44 @@ local HTTPService = game:GetService("HttpService")
 
 local Library = {
 	Themes = {
+		Legacy = {
+			Main = Color3.fromHSV(262/360, 60/255, 34/255),
+			Secondary = Color3.fromHSV(240/360, 40/255, 63/255),
+			Tertiary = Color3.fromHSV(260/360, 60/255, 148/255),
+
+			StrongText = Color3.fromHSV(0, 0, 1),		
+			WeakText = Color3.fromHSV(0, 0, 172/255)
+		},
+		Serika = {
+			Main = Color3.fromRGB(50, 52, 55),
+			Secondary = Color3.fromRGB(80, 82, 85),
+			Tertiary = Color3.fromRGB(226, 183, 20),
+
+			StrongText = Color3.fromHSV(0, 0, 1),		
+			WeakText = Color3.fromHSV(0, 0, 172/255)
+		},
 		Dark = {
 			Main = Color3.fromRGB(30, 30, 35),
 			Secondary = Color3.fromRGB(50, 50, 55),
 			Tertiary = Color3.fromRGB(70, 130, 180),
 
 			StrongText = Color3.fromHSV(0, 0, 1),		
+			WeakText = Color3.fromHSV(0, 0, 172/255)
+		},
+		Rust = {
+			Main = Color3.fromRGB(37, 35, 33),
+			Secondary = Color3.fromRGB(65, 63, 63),
+			Tertiary = Color3.fromRGB(237, 94, 38),
+
+			StrongText = Color3.fromHSV(0, 0, 1),		
+			WeakText = Color3.fromHSV(0, 0, 172/255)
+		},
+		Aqua = {
+			Main = Color3.fromRGB(19, 21, 21),
+			Secondary = Color3.fromRGB(65, 63, 63),
+			Tertiary = Color3.fromRGB(51, 153, 137),
+
+			StrongText = Color3.fromHSV(0, 0, 1),        
 			WeakText = Color3.fromHSV(0, 0, 172/255)
 		},
 		Vaporwave = {},
@@ -590,7 +621,7 @@ function Library:create(options)
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, 47,1, 47),
 		ZIndex = 0,
-		Image = "rbxassetid://6015897843",
+		Image = "rbxassetid://6026568198",
 		ImageColor3 = Color3.new(0, 0, 0),
 		ImageTransparency = .6,
 		SliceCenter = Rect.new(47, 47, 450, 450),
@@ -830,7 +861,7 @@ function Library:create(options)
 	local settingsTab = Library.tab(mt, {
 		Name = "Settings",
 		Internal = settingsTabIcon,
-		Icon = "rbxassetid://8559790237"
+		Icon = "rbxassetid://6026568198"
 	})
 
 	settingsTab:_theme_selector()
@@ -913,7 +944,7 @@ function Library:notification(options)
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, 70,1, 70),
 		ZIndex = 0,
-		Image = "rbxassetid://6014261993",
+		Image = "rbxassetid://6026568198",
 		ImageColor3 = Color3.fromRGB(0,0,0),
 		ImageTransparency = 1,
 		ScaleType = Enum.ScaleType.Slice,
@@ -939,7 +970,7 @@ function Library:notification(options)
 		ImageTransparency = 1,
 		Position = UDim2.fromOffset(1, 1),
 		Size = UDim2.fromOffset(18, 18),
-		Image = "rbxassetid://8628681683",
+		Image = "rbxassetid://6026568198",
 		Theme = {ImageColor3 = "Tertiary"}
 	})
 
@@ -1023,7 +1054,7 @@ end
 function Library:tab(options)
 	options = self:set_defaults({
 		Name = "New Tab",
-		Icon = "rbxassetid://8569322835"
+		Icon = "rbxassetid://6026568198"
 	}, options)
 
 	local tab = self.container:object("ScrollingFrame", {
@@ -1170,7 +1201,7 @@ function Library:tab(options)
 		BackgroundTransparency = 1,
 		Position = UDim2.new(1, -5, 0.5, 0),
 		Size = UDim2.fromOffset(14, 14),
-		Image = "rbxassetid://8497487650",
+		Image = "rbxassetid://6026568198",
 		Theme = {ImageColor3 = "StrongText"}
 	})
 
@@ -1403,7 +1434,7 @@ function Library:dropdown(options)
 		BackgroundTransparency = 1,
 		Position = UDim2.new(1, -11, 0, 12),
 		Size = UDim2.fromOffset(26, 26),
-		Image = "rbxassetid://8498840035",
+		Image = "rbxassetid://6026568198",
 		Theme = {ImageColor3 = "Tertiary"}
 	})
 
@@ -1763,7 +1794,7 @@ function Library:button(options)
 		BackgroundTransparency = 1,
 		Position = UDim2.new(1, -11, 0.5, 0),
 		Size = UDim2.fromOffset(26, 26),
-		Image = "rbxassetid://8498776661",
+		Image = "rbxassetid://6026568198",
 		Theme = {ImageColor3 = "Tertiary"}
 	})
 
@@ -1853,7 +1884,7 @@ function Library:color_picker(options)
 		BackgroundTransparency = 1,
 		Position = UDim2.new(1, -11, 0.5, 0),
 		Size = UDim2.fromOffset(26, 26),
-		Image = "rbxassetid://8604555937",
+		Image = "rbxassetid://6026568198",
 		ImageColor3 = Library.CurrentTheme.Tertiary
 	})
 
@@ -1908,7 +1939,7 @@ function Library:color_picker(options)
 						Position = UDim2.new(0, 365,0, 102),
 						Size = UDim2.new(0, 56,0, 48),
 						ZIndex = 10,
-						Image = "rbxassetid://8579148508",
+						Image = "rbxassetid://6026568198",
 						ImageColor3 = selectedColor,
 						ImageTransparency = 1,
 						Rotation = 180
@@ -1920,7 +1951,7 @@ function Library:color_picker(options)
 						Rotation = -4,
 						Size = UDim2.new(0, 141,0, 37),
 						ZIndex = 10,
-						Image = "rbxassetid://8579166120",
+						Image = "rbxassetid://6026568198",
 						ImageColor3 = selectedColor,
 						ImageTransparency = 0
 					})
@@ -1944,7 +1975,7 @@ function Library:color_picker(options)
 						BackgroundTransparency = 1,
 						Size = UDim2.new(1, 47,1, 47),
 						ZIndex = 11,
-						Image = "rbxassetid://6015897843",
+						Image = "rbxassetid://6026568198",
 						ImageColor3 = Color3.new(0, 0, 0),
 						ImageTransparency = 1,
 						SliceCenter = Rect.new(49, 49, 450, 450),
@@ -2040,7 +2071,7 @@ function Library:color_picker(options)
 						Position = UDim2.new(-2, 3,0, -10),
 						Size = UDim2.fromOffset(20, 20),
 						ZIndex = 12,
-						Image = "rbxassetid://8579244616"
+						Image = "rbxassetid://6026568198"
 					})
 
 					local pickerArea = cpHolder:object("TextButton", {
@@ -2431,7 +2462,7 @@ function Library:color_picker(options)
 						Theme = {BackgroundColor3 = "Tertiary"},
 						Position = UDim2.fromScale(1, 1),
 						Size = UDim2.new(0.5, 0,0, 20),
-						Image = "rbxassetid://8593962406",
+						Image = "rbxassetid://6026568198",
 						ScaleType = Enum.ScaleType.Fit,
 						BackgroundTransparency = 1,
 						ImageTransparency = 1
@@ -2449,7 +2480,7 @@ function Library:color_picker(options)
 						Centered = true,
 						BackgroundTransparency = 1,
 						Size = UDim2.fromScale(.6, .6),
-						Image = "rbxassetid://8593995344",
+						Image = "rbxassetid://6026568198",
 						ImageColor3 = Color3.fromRGB(255, 255, 255),
 						ImageTransparency = 1
 					})
@@ -2466,7 +2497,7 @@ function Library:color_picker(options)
 						Centered = true,
 						BackgroundTransparency = 1,
 						Size = UDim2.fromScale(.6, .6),
-						Image = "rbxassetid://8593995344",
+						Image = "rbxassetid://6026568198",
 						ImageColor3 = Color3.fromRGB(0, 0, 0),
 						ImageTransparency = 1
 					})
