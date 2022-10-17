@@ -1,5 +1,5 @@
 if game.PlaceId == 13822889 then -- LT2
 loadstring(game:HttpGet('https://raw.githubusercontent.com/thombomb2009/butter-hub/main/BUTTERLT2.txt'))()
 elseif game.PlaceId == 10660791703 then -- cart ride around nothing
-loadstring(game:HttpGet('https://github.com/thombomb2009/butter-hub/blob/main/New%20Text%20Document%20(2)-obfuscated.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/thombomb2009/butter-hub/main/cart%20ride.txt'))()
 end
